@@ -1,4 +1,4 @@
-# Type 2 Diabetes Risk Prediction
+#  Diabetes Risk Prediction
 
 A machine learning web application that estimates the risk of Type 2 Diabetes using health and demographic information. Built with Python, Scikit-learn, and Streamlit, and deployed on Render.
 
