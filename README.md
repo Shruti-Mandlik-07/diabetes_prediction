@@ -1,65 +1,61 @@
 # Type 2 Diabetes Risk Prediction
 
-A machine learning web application that estimates the risk of Type 2 Diabetes based on user-provided health and demographic information. The application uses trained classification models and an interactive Streamlit interface to generate predictions.
+A machine learning web application that estimates the risk of Type 2 Diabetes using health and demographic information. Built with Python, Scikit-learn, and Streamlit, and deployed on Render.
 
 ## Live Demo
 
-**Live Application:** [Open Diabetes Risk Prediction](YOUR_RENDER_URL)
+**Live Application:** https://diabetes-prediction-fdtu.onrender.com
 
-**GitHub Repository:** [diabetes_prediction](https://github.com/Shruti-Mandlik-07/diabetes_prediction)
-
-> Replace `YOUR_RENDER_URL` with your public Render URL.
+**GitHub Repository:** https://github.com/Shruti-Mandlik-07/diabetes_prediction
 
 ## Project Overview
 
-Type 2 Diabetes is a chronic condition that affects how the body regulates blood glucose. Early identification of potential risk factors can encourage timely medical consultation and preventive care.
+Type 2 Diabetes is a chronic condition that affects how the body regulates blood glucose. This project explores how machine learning classification algorithms can use health-related features to predict diabetes status.
 
-This project applies machine learning classification techniques to a diabetes dataset and provides a user-friendly interface for generating predictions from health-related input features.
+The application provides an interactive interface where users can enter relevant information and receive a model-generated prediction.
 
 ## Objectives
 
-- Develop a machine learning model to predict diabetes risk.
-- Compare multiple classification algorithms using evaluation metrics.
-- Build an interactive web application using Streamlit.
-- Deploy the application on Render for public access.
-- Demonstrate an end-to-end machine learning workflow, from preprocessing and model evaluation to deployment.
+- Build a machine learning model for diabetes prediction.
+- Train and compare multiple classification algorithms.
+- Apply preprocessing to numerical and categorical features.
+- Evaluate models using classification metrics.
+- Deploy the trained model through an interactive web application.
 
-## Machine Learning Models
+## Machine Learning Algorithms
 
-The training workflow compares the following classification algorithms:
+The training workflow compares nine classification algorithms:
 
-- Logistic Regression
-- K-Nearest Neighbors (KNN)
-- Linear Support Vector Classifier (Linear SVC)
-- Decision Tree
-- Random Forest
-- Extra Trees
-- Gradient Boosting
-- AdaBoost
-- Gaussian Naive Bayes
+1. Logistic Regression
+2. K-Nearest Neighbors (KNN)
+3. Linear Support Vector Classifier (Linear SVC)
+4. Decision Tree
+5. Random Forest
+6. Extra Trees
+7. Gradient Boosting
+8. AdaBoost
+9. Gaussian Naive Bayes
 
-The best-performing model is selected based on the evaluation workflow implemented during training.
+The best-performing model is selected according to the evaluation criterion implemented in the training workflow.
 
 ## Technology Stack
 
-| Component | Technologies |
-|---|---|
-| Programming Language | Python |
-| Machine Learning | Scikit-learn |
-| Data Processing | Pandas, NumPy |
-| Model Serialization | Joblib / Pickle |
-| Web Application | Streamlit |
-| Version Control | Git, GitHub |
-| Deployment | Render |
+- **Language:** Python
+- **Machine Learning:** Scikit-learn
+- **Data Processing:** Pandas, NumPy
+- **Model Serialization:** Pickle / Joblib
+- **Web Framework:** Streamlit
+- **Version Control:** Git and GitHub
+- **Deployment:** Render
 
-## Application Features
+## Key Features
 
-- Interactive input form for health and demographic attributes.
+- Interactive health-data input form.
 - Machine learning-based diabetes prediction.
 - Prediction probability when supported by the selected model.
-- Data preprocessing integrated into the saved model pipeline.
-- Responsive, browser-accessible Streamlit interface.
-- Cloud deployment through Render.
+- Integrated data preprocessing pipeline.
+- Browser-accessible web interface.
+- Cloud deployment for public access.
 
 ## Project Structure
 
@@ -73,16 +69,39 @@ diabetes_prediction/
 └── README.md
 ```
 
-### File Description
+| File | Description |
+|---|---|
+| `app.py` | Streamlit application and prediction logic |
+| `requirements.txt` | Python dependencies |
+| `diabetes_best_model.pkl` | Saved trained machine learning pipeline |
+| `diabetes_model_metadata.pkl` | Feature information and model metadata |
+| `.gitignore` | Files excluded from version control |
 
-- `app.py` — Streamlit application and prediction interface.
-- `requirements.txt` — Python package dependencies.
-- `diabetes_best_model.pkl` — Saved trained machine learning pipeline.
-- `diabetes_model_metadata.pkl` — Model metadata, feature information, and evaluation details.
-- `.gitignore` — Excludes unnecessary files from version control.
-- `README.md` — Project documentation.
+## Model Development Workflow
 
-## Installation and Local Setup
+1. Load and explore the diabetes dataset.
+2. Identify the target variable and input features.
+3. Split the data into training and testing sets.
+4. Handle missing values and preprocess numerical and categorical data.
+5. Train multiple classification algorithms.
+6. Compare model performance using evaluation metrics.
+7. Select and save the best-performing pipeline.
+8. Integrate the saved model into the Streamlit application.
+9. Deploy the application using Render.
+
+## Evaluation Metrics
+
+The model comparison workflow considers:
+
+- **Accuracy:** Overall proportion of correct predictions.
+- **Precision:** Reliability of positive predictions.
+- **Recall:** Ability to identify actual positive cases.
+- **F1-score:** Balance between precision and recall.
+- **ROC-AUC:** Ability to distinguish between the two classes, when applicable.
+
+Actual performance depends on the dataset and test results. Refer to the training output for measured scores.
+
+## Run Locally
 
 ### 1. Clone the repository
 
@@ -109,75 +128,41 @@ Activate it on Windows:
 pip install -r requirements.txt
 ```
 
-### 4. Run the application
+### 4. Start the application
 
 ```bash
 python -m streamlit run app.py
 ```
 
-Open the local URL displayed in the terminal, usually `http://localhost:8501`.
-
-## Model Development Workflow
-
-1. Load the diabetes dataset.
-2. Inspect the data and prepare the target variable.
-3. Separate input features and the target.
-4. Split the data into training and testing sets.
-5. Handle missing values and preprocess numerical and categorical features.
-6. Train and compare multiple classification algorithms.
-7. Evaluate models using appropriate classification metrics.
-8. Select the best-performing model according to the implemented selection criterion.
-9. Save the trained pipeline and metadata.
-10. Integrate the saved model into the Streamlit application.
-11. Deploy the application on Render.
-
-## Evaluation Metrics
-
-The model comparison workflow uses relevant classification metrics, including:
-
-- **Accuracy:** Overall proportion of correct predictions.
-- **Precision:** Proportion of predicted positive cases that are actually positive.
-- **Recall:** Proportion of actual positive cases correctly identified.
-- **F1-score:** Harmonic mean of precision and recall.
-- **ROC-AUC:** Measures the model's ability to distinguish between the classes when applicable.
-
-Actual metric values depend on the dataset, test split, and selected model. Refer to the training results for measured performance.
+Open the local URL displayed in the terminal, typically `http://localhost:8501`.
 
 ## Deployment
 
-The application is deployed on **Render** using the connected GitHub repository.
-
-Typical deployment configuration:
+The application is hosted on Render and connected to the GitHub repository.
 
 - **Build command:** `pip install -r requirements.txt`
 - **Start command:** `streamlit run app.py --server.port $PORT --server.address 0.0.0.0`
 - **Branch:** `main`
 
-## Limitations
-
-- Predictions depend on the quality, representativeness, and limitations of the training dataset.
-- Performance on unseen populations may differ from test-set performance.
-- Model outputs represent estimates, not confirmed diagnoses.
-- A prediction probability should not be interpreted as a person's medically calibrated probability of developing diabetes unless calibration has been independently evaluated.
-- The application is intended for educational and research purposes, not for clinical decision-making.
-
 ## Future Enhancements
 
-- Add explainability techniques such as SHAP to help interpret predictions.
-- Improve model validation using cross-validation and external datasets.
-- Evaluate probability calibration and fairness across demographic groups.
-- Add data visualizations and model performance dashboards.
-- Strengthen input validation and application monitoring.
+- Add model explainability using SHAP.
+- Improve validation with cross-validation and independent datasets.
+- Evaluate probability calibration and model fairness.
+- Add visualizations for model performance and feature importance.
+- Improve input validation and application monitoring.
 
-## Disclaimer
+## Limitations and Disclaimer
 
-This project is intended for educational and research purposes only. It is not a medical diagnostic tool and must not replace advice, screening, or diagnosis from a qualified healthcare professional.
+This application is an educational machine learning project. Its predictions depend on the quality and representativeness of the training data and may not generalize to every population.
+
+**It is not a medical diagnostic tool.** Predictions should not replace professional medical advice, screening, or diagnosis.
 
 ## Author
 
 **Shruti Mandlik**
 
-GitHub: [Shruti-Mandlik-07](https://github.com/Shruti-Mandlik-07)
+GitHub: https://github.com/Shruti-Mandlik-07
 
 ---
 
